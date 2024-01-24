@@ -4,6 +4,7 @@ require('dotenv').config()
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken')
 const userRouter = require("./user/userRouter")
+const userHouse = require("./house/houseRouter")
 const cors = require("cors")
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(userRouter)
+app.use(userHouse)
 // connection database
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.fympfvv.mongodb.net/houseHunter?retryWrites=true&w=majority`
 
